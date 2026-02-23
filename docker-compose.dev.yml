@@ -1,0 +1,14 @@
+services:
+  dyssomnia-front-dev:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/app
+      - /app/node_modules
+    environment:
+      - VITE_API_URL=${VITE_API_URL:-http://localhost:8000}
+      - VITE_TASK_API_URL=${VITE_TASK_API_URL:-http://localhost:8001}
+    restart: unless-stopped

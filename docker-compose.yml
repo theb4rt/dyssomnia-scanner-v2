@@ -1,0 +1,11 @@
+services:
+  dyssomnia-front:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        VITE_API_URL: ${VITE_API_URL:-http://localhost:8000}
+        VITE_TASK_API_URL: ${VITE_TASK_API_URL:-http://localhost:8001}
+    ports:
+      - "80:80"
+    restart: unless-stopped

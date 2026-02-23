@@ -1,0 +1,88 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:is(.dark *));
+
+@font-face {
+  font-family: "JetBrains Mono";
+  font-style: normal;
+  font-display: swap;
+  src: url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap");
+}
+
+@theme inline {
+  --color-background: hsl(120 5% 5%);
+  --color-foreground: hsl(120 50% 75%);
+  --color-card: hsl(120 5% 8%);
+  --color-card-foreground: hsl(120 50% 75%);
+  --color-popover: hsl(120 5% 8%);
+  --color-popover-foreground: hsl(120 50% 75%);
+  --color-primary: hsl(120 100% 40%);
+  --color-primary-foreground: hsl(0 0% 0%);
+  --color-secondary: hsl(120 10% 15%);
+  --color-secondary-foreground: hsl(120 50% 75%);
+  --color-muted: hsl(120 5% 20%);
+  --color-muted-foreground: hsl(120 20% 50%);
+  --color-accent: hsl(120 80% 35%);
+  --color-accent-foreground: hsl(0 0% 0%);
+  --color-destructive: hsl(0 60% 50%);
+  --color-destructive-foreground: hsl(0 0% 100%);
+  --color-border: hsl(120 20% 15%);
+  --color-input: hsl(120 20% 15%);
+  --color-ring: hsl(120 100% 40%);
+  --color-chart-1: hsl(120 100% 40%);
+  --color-chart-2: hsl(160 60% 45%);
+  --color-chart-3: hsl(80 60% 45%);
+  --color-chart-4: hsl(200 50% 45%);
+  --color-chart-5: hsl(280 50% 45%);
+
+  --color-sidebar: hsl(120 5% 4%);
+  --color-sidebar-foreground: hsl(120 30% 60%);
+  --color-sidebar-primary: hsl(120 100% 40%);
+  --color-sidebar-primary-foreground: hsl(0 0% 0%);
+  --color-sidebar-accent: hsl(120 15% 12%);
+  --color-sidebar-accent-foreground: hsl(120 50% 75%);
+  --color-sidebar-border: hsl(120 15% 12%);
+  --color-sidebar-ring: hsl(120 100% 40%);
+
+  --radius-lg: 0.5rem;
+  --radius-md: calc(var(--radius-lg) - 2px);
+  --radius-sm: calc(var(--radius-lg) - 4px);
+
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", "Fira Code", ui-monospace, monospace;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+  }
+
+  /* Green glow on focused inputs */
+  input:focus,
+  textarea:focus {
+    box-shadow: 0 0 10px rgba(0, 204, 0, 0.3);
+  }
+
+  /* Scrollbar styling */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: hsl(120 5% 5%);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: hsl(120 20% 15%);
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(120 20% 25%);
+  }
+}
