@@ -100,5 +100,5 @@ jobs:
             docker run -d \
               --name dyssomnia-front \
               --restart unless-stopped \
-              -p 80:80 \
+              -p 3000:80 \
               836725859688.dkr.ecr.us-east-2.amazonaws.com/dyssomnia-front:latest
