@@ -13,7 +13,7 @@ permissions:
 
 env:
   AWS_REGION: us-east-2
-  ECR_REPOSITORY: dyssonmia-front
+  ECR_REPOSITORY: dyssomnia-front
 
 jobs:
   ci:
@@ -90,11 +90,11 @@ jobs:
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
             aws ecr get-login-password --region us-east-2 | docker login --username AWS --password-stdin ${{ secrets.ECR_REGISTRY }}
-            docker pull ${{ secrets.ECR_REGISTRY }}/dyssonmia-front:latest
+            docker pull ${{ secrets.ECR_REGISTRY }}/dyssomnia-front:latest
             docker stop dyssomnia-front || true
             docker rm dyssomnia-front || true
             docker run -d \
               --name dyssomnia-front \
               --restart unless-stopped \
               -p 80:80 \
-              ${{ secrets.ECR_REGISTRY }}/dyssonmia-front:latest
+              ${{ secrets.ECR_REGISTRY }}/dyssomnia-front:latest
