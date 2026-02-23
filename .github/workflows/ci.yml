@@ -89,12 +89,16 @@ jobs:
           username: ${{ secrets.EC2_USER }}
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
-            aws ecr get-login-password --region us-east-2 | docker login --username AWS --password-stdin ${{ secrets.ECR_REGISTRY }}
-            docker pull ${{ secrets.ECR_REGISTRY }}/dyssomnia-front:latest
+            aws ecr get-login-password --region us-east-2 | \
+            docker login --username AWS --password-stdin 836725859688.dkr.ecr.us-east-2.amazonaws.com
+
+            docker pull 836725859688.dkr.ecr.us-east-2.amazonaws.com/dyssomnia-front:latest
+
             docker stop dyssomnia-front || true
             docker rm dyssomnia-front || true
+
             docker run -d \
               --name dyssomnia-front \
               --restart unless-stopped \
               -p 80:80 \
-              ${{ secrets.ECR_REGISTRY }}/dyssomnia-front:latest
+              836725859688.dkr.ecr.us-east-2.amazonaws.com/dyssomnia-front:latest
