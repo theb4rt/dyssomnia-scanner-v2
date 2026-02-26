@@ -25,7 +25,7 @@ export function AppSidebar() {
               Dyssomnia
             </span>
             <span className="font-mono text-[10px] text-muted-foreground">
-              Scanner v2.1
+              Scanner v2.2222222
             </span>
           </div>
         </div>
